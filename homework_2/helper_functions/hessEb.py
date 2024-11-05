@@ -1,4 +1,6 @@
 import numpy as np
+from crossMat import crossMat
+
 
 def hessEb(xkm1, ykm1, xk, yk, xkp1, ykp1, curvature0, l_k, EI):
     """
@@ -83,21 +85,27 @@ def hessEb(xkm1, ykm1, xk, yk, xkp1, ykp1, curvature0, l_k, EI):
     tf_c_d2t_o_tt = np.outer(tmp, tilde_t)
     kb_o_d2e = np.outer(kb, m2e)
 
-    D2kappa1De2 = (2 * kappa1 * tt_o_tt - tf_c_d2t_o_tt - tf_c_d2t_o_tt.T) / norm2_e - \
-                  kappa1 / (chi * norm2_e) * (Id3 - np.outer(te, te)) + \
-                  (kb_o_d2e + kb_o_d2e.T) / (4 * norm2_e)
+    D2kappa1De2 = (
+        (2 * kappa1 * tt_o_tt - tf_c_d2t_o_tt - tf_c_d2t_o_tt.T) / norm2_e
+        - kappa1 / (chi * norm2_e) * (Id3 - np.outer(te, te))
+        + (kb_o_d2e + kb_o_d2e.T) / (4 * norm2_e)
+    )
 
     tmp = np.cross(te, tilde_d2)
     te_c_d2t_o_tt = np.outer(tmp, tilde_t)
     tt_o_te_c_d2t = te_c_d2t_o_tt.T
     kb_o_d2f = np.outer(kb, m2f)
 
-    D2kappa1Df2 = (2 * kappa1 * tt_o_tt + te_c_d2t_o_tt + te_c_d2t_o_tt.T) / norm2_f - \
-                  kappa1 / (chi * norm2_f) * (Id3 - np.outer(tf, tf)) + \
-                  (kb_o_d2f + kb_o_d2f.T) / (4 * norm2_f)
-    D2kappa1DeDf = -kappa1 / (chi * norm_e * norm_f) * (Id3 + np.outer(te, tf)) \
-                  + 1.0 / (norm_e * norm_f) * (2 * kappa1 * tt_o_tt - tf_c_d2t_o_tt + \
-                  tt_o_te_c_d2t - crossMat(tilde_d2))
+    D2kappa1Df2 = (
+        (2 * kappa1 * tt_o_tt + te_c_d2t_o_tt + te_c_d2t_o_tt.T) / norm2_f
+        - kappa1 / (chi * norm2_f) * (Id3 - np.outer(tf, tf))
+        + (kb_o_d2f + kb_o_d2f.T) / (4 * norm2_f)
+    )
+    D2kappa1DeDf = -kappa1 / (chi * norm_e * norm_f) * (
+        Id3 + np.outer(te, tf)
+    ) + 1.0 / (norm_e * norm_f) * (
+        2 * kappa1 * tt_o_tt - tf_c_d2t_o_tt + tt_o_te_c_d2t - crossMat(tilde_d2)
+    )
     D2kappa1DfDe = D2kappa1DeDf.T
 
     # Populate the Hessian of kappa
@@ -105,8 +113,12 @@ def hessEb(xkm1, ykm1, xk, yk, xkp1, ykp1, curvature0, l_k, EI):
     DDkappa1[0:2, 2:4] = -D2kappa1De2[0:2, 0:2] + D2kappa1DeDf[0:2, 0:2]
     DDkappa1[0:2, 4:6] = -D2kappa1DeDf[0:2, 0:2]
     DDkappa1[2:4, 0:2] = -D2kappa1De2[0:2, 0:2] + D2kappa1DfDe[0:2, 0:2]
-    DDkappa1[2:4, 2:4] = D2kappa1De2[0:2, 0:2] - D2kappa1DeDf[0:2, 0:2] - \
-                         D2kappa1DfDe[0:2, 0:2] + D2kappa1Df2[0:2, 0:2]
+    DDkappa1[2:4, 2:4] = (
+        D2kappa1De2[0:2, 0:2]
+        - D2kappa1DeDf[0:2, 0:2]
+        - D2kappa1DfDe[0:2, 0:2]
+        + D2kappa1Df2[0:2, 0:2]
+    )
     DDkappa1[2:4, 4:6] = D2kappa1DeDf[0:2, 0:2] - D2kappa1Df2[0:2, 0:2]
     DDkappa1[4:6, 0:2] = -D2kappa1DfDe[0:2, 0:2]
     DDkappa1[4:6, 2:4] = D2kappa1DfDe[0:2, 0:2] - D2kappa1Df2[0:2, 0:2]
