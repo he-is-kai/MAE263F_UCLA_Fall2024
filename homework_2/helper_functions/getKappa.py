@@ -1,5 +1,5 @@
 import numpy as np
-from computekappa import computekappa
+from .computekappa import computekappa
 
 
 def getKappa(q0, m1, m2):

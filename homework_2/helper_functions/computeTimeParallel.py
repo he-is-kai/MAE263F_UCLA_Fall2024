@@ -1,6 +1,6 @@
 import numpy as np
-from computeTangent import computeTangent
-from parallel_transport import parallel_transport
+from .computeTangent import computeTangent
+from .parallel_transport import parallel_transport
 
 
 def computeTimeParallel(a1_old, q0, q):

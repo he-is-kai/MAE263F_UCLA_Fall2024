@@ -1,5 +1,5 @@
 import numpy as np
-from computeReferenceTwist import computeReferenceTwist
+from .computeReferenceTwist import computeReferenceTwist
 
 def getRefTwist(a1, tangent, refTwist):
   ne = a1.shape[0] # Shape of a1 is (ne,3)

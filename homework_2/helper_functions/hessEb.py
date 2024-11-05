@@ -1,5 +1,5 @@
 import numpy as np
-from crossMat import crossMat
+from .crossMat import crossMat
 
 
 def hessEb(xkm1, ykm1, xk, yk, xkp1, ykp1, curvature0, l_k, EI):

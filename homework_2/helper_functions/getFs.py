@@ -1,5 +1,5 @@
 import numpy as np
-from gradEs_hessEs import gradEs_hessEs
+from .gradEs_hessEs import gradEs_hessEs
 
 
 def getFs(q, EA, refLen):

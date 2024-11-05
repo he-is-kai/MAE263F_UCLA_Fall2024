@@ -1,5 +1,5 @@
 import numpy as np
-from crossMat import crossMat
+from .crossMat import crossMat
 
 # Include Panetta et al. 2019 correction
 

@@ -1,6 +1,6 @@
-from parallel_transport import parallel_transport
-from rotateAxisAngle import rotateAxisAngle
-from signedAngle import signedAngle
+from .parallel_transport import parallel_transport
+from .rotateAxisAngle import rotateAxisAngle
+from .signedAngle import signedAngle
 
 
 def computeReferenceTwist(u1, u2, t1, t2, refTwist):

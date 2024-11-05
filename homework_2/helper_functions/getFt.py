@@ -1,5 +1,5 @@
 import numpy as np
-from gradEt_hessEt import gradEt_hessEt_panetta as gradEt_hessEt
+from .gradEt_hessEt import gradEt_hessEt_panetta as gradEt_hessEt
 
 
 def getFt(q, refTwist, twistBar, GJ, voronoiRefLen):

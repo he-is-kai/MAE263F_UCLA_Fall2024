@@ -1,5 +1,5 @@
 import numpy as np
-from gradEb_hessEb import gradEb_hessEb
+from .gradEb_hessEb import gradEb_hessEb
 
 def getFb(q, m1, m2, kappaBar, EI, voronoiRefLen):
   ndof = len(q)
