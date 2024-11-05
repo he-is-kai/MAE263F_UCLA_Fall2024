@@ -1,4 +1,3 @@
-import numpy as np
 from parallel_transport import parallel_transport
 from rotateAxisAngle import rotateAxisAngle
 from signedAngle import signedAngle
