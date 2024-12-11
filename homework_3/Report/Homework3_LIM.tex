@@ -102,7 +102,7 @@ The gradients of the loss function with respect to \textit{m} and \textit{b} are
    -\frac{2}{N}\sum^{N}_{i=1} (y_i - (m \cdot x_i + b) )
 \end{equation}
 
-Using gradient descent, we update the parameters \textit{m} and \textit{b} as follows:
+Using gradient descent, we update the hyperparameters \textit{m} and \textit{b} as follows:
 
 \begin{equation}
    m \leftarrow m - \eta \frac{\partial \text{Loss}}{\partial m}, b \leftarrow b - \eta\frac{\partial \text{Loss}}{\partial b}
@@ -110,55 +110,262 @@ Using gradient descent, we update the parameters \textit{m} and \textit{b} as fo
 
 where $\eta$ is the learning rate.
 
-\subsection{Problem 1a: Compare the predicted values with the actual data}
+\subsection{Results: 1a}
+Compare the predicted values with the actual data. 
+After fitting the model, plot the predicted values $y_{pred}$ versus the actual data $y$. Include the plot in your report. 
+
 These are the results of fitting the model for 10000 epochs at a learning rate of 0.001.
 
-m_fit is -0.011781642379859762
-
-b_fit is 0.06320409591699154
+\begin{table}[h]
+   \centering
+   \caption{Linear Fit: Nominal values of $m_{fit}$ and $b_{fit}$}
+   \label{tab:Lin_Nominal_mb}
+   \begin{tabular}{|c|c|}
+      \hline
+      $m_{fit}$ & $b_{fit}$ \\
+      \hline
+      -0.011781642379859762 & 0.06320409591699154 \\
+      \hline
+   \end{tabular}
+\end{table}
 
 % [h!] makes latex try to place figure exactly there, not floating around
 \begin{figure}[h!]
    \centering
    \includegraphics[width=0.8\linewidth]{../Figures/linear_regression_e_10000_n_0.001.png}
-   \caption{TPredicted values $y_red$ versus actual data $y$}
+   \caption{Predicted values $y_{pred}$ versus actual data $y$ with original values }
    \label{fig:Lin_a}
 \end{figure}
 
 
-\subsection{Problem 1b: Experiment with the learning rate and number of epochs}
-Here I tried different values of the learning rate ($\eta$)
+\subsection{Results: 1b}
+Problem 1b: Experiment with the learning rate and number of epochs.
+
+Here I manually tried different values of epochs and learning rate ($\eta$) and found the set that minimized loss with ensured convergence
+
+\begin{table}[h]
+   \centering
+   \caption{Linear Fit: Table of hyperparameters}
+   \label{tab:lin_param}
+   \begin{tabular}{|c|c|c|c|c|}
+      \hline
+      Epoch & Learning Rate ($\eta$) & Loss & Convergence & Figure\\
+      \hline
+      10000 & 0.001 & 0.00000391 & Yes & \ref{fig:Lin_a}\\
+      \hline
+      1000 & 0.001 & 0.02600305 & No\ & \ref{fig:Lin_b_less_e}\\
+      \hline
+      10000 & 0.01 & 0.00000343 & Yes & \ref{fig:Lin_b_less_n}\\
+      \hline
+      1000 & 0.01 & 0.00000343 & Yes & \ref{fig:Lin_b_min_loss}\\
+      \hline
+   \end{tabular}
+   
+\end{table}
+
+
+% [h!] makes latex try to place figure exactly there, not floating around
+\begin{figure}[h!]
+   \centering
+   \includegraphics[width=0.8\linewidth]{../Figures/linear_regression_e_1000_n_0.001.png}
+   \caption{Predicted values $y_{pred}$ versus actual data $y$ with no convergence}
+   \label{fig:Lin_b_less_e}
+\end{figure}
+
+% [h!] makes latex try to place figure exactly there, not floating around
+\begin{figure}[h!]
+   \centering
+   \includegraphics[width=0.8\linewidth]{../Figures/linear_regression_e_10000_n_0.01.png}
+   \caption{Predicted values $y_{pred}$ versus actual data $y$ with minimum loss but excess epochs}
+   \label{fig:Lin_b_less_n}
+\end{figure}
+
+% [h!] makes latex try to place figure exactly there, not floating around
+\begin{figure}[h!]
+   \centering
+   \includegraphics[width=0.8\linewidth]{../Figures/linear_regression_e_1000_n_0.01.png}
+   \caption{Predicted values $y_{pred}$ versus actual data $y$ with minimum loss and optimized epochs}
+   \label{fig:Lin_b_min_loss}
+\end{figure}
+
+Changing the learning rate effects the number of epochs required for convergence. 
+A smaller learning rate requires more epochs before convergence.
+Furthermore, a larger learning rate also affects the precision of the fit, meaning that a minimum loss might not be found because of the larger "steps" from the learning rate. 
+
+Changing the number of epochs affects the final loss, assuming loss is not yet minimized. 
+This means there is a minimum number of epochs required to get the optimum fit, and thereafter, higher numbers of epochs are wasted a computation resource.
+
+Together, this means we want a learning rate that is just large enough to find the minimum loss fit, then we want to minimize the number of epochs within this fit.
+This was manually found and presented in Figure. \ref{fig:Lin_b_min_loss}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Results}
+\section{Problem 2 - Nonlinear Fits}
 
-\subsection{General Results}
+\subsection{Theory}
 
-We observe that the elastic rod begins the simulation as a coiled planar circle, but stretches under gravity to become a helical coil (spring shape).
-With the time available for this project, the most accurate simulation of this scenario comprised $N=400$ nodes and $\Delta t = 0.005$ s.
-This simulation required 83 mins to complete computation on the author's personal computer.
+Here, we want to fit the same data (from problem 1) onto the nonlinear equation:
+
+\begin{equation}
+   y = n \cdot \text{exp}(-a \cdot y_{\text{int}}), 
+   \text{ where }
+   y_{\text{int}} = (m\cdot x + b)^2
+\end{equation}
+
+using gradient descent and backpropagation.
+
+We use the Mean Squared Error (MSE) loss function: 
+\begin{equation}
+   \text{Loss}(n,a,m,b) = \frac{1}{N} \sum^{N}_{i=1}(y_i - n \cdot \text{exp}(-a \cdot (m \cdot x_i + b)^2) )^2
+\end{equation}
+
+with the following gradients of the loss function with respect to $n$, $a$, $m$, and $b$ as:
+
+\begin{equation}
+   \begin{aligned}
+   \frac{\partial \text{Loss}}{\partial n} = -\frac{2}{N} \sum_{i=1}^N \\
+   & \left( y_i - n \cdot \exp\left(-a \cdot \left(m \cdot x_i + b\right)^2\right) \right) \\
+   & \cdot \exp\left(-a \cdot \left(m \cdot x_i + b\right)^2\right)
+   \end{aligned}
+\end{equation}
+
+\begin{equation}
+   \begin{aligned}
+   \frac{\partial \text{Loss}}{\partial a} = \frac{2}{N} \sum_{i=1}^N \\
+   & \left( y_i - n \cdot \exp\left(-a \cdot \left(m \cdot x_i + b\right)^2\right) \right) \\
+   & \cdot n \cdot \exp\left(-a \cdot \left(m \cdot x_i + b\right)^2\right) \\
+   & \cdot \left(-\left(m \cdot x_i + b\right)^2\right)
+   \end{aligned}
+\end{equation}
+
+\begin{equation}
+   \begin{aligned}
+   \frac{\partial \text{Loss}}{\partial m} = \frac{2}{N} \sum_{i=1}^N \\
+   & \left( y_i - n \cdot \exp\left(-a \cdot \left(m \cdot x_i + b\right)^2\right) \right) \\
+   & \cdot n \cdot \exp\left(-a \cdot \left(m \cdot x_i + b\right)^2\right) \\
+   & \cdot \left(-2a \cdot \left(m \cdot x_i + b\right) \cdot x_i\right)
+   \end{aligned}
+\end{equation}
+
+\begin{equation}
+   \begin{aligned}
+   \frac{\partial \text{Loss}}{\partial b} = \frac{2}{N} \sum_{i=1}^N \\
+   & \left( y_i - n \cdot \exp\left(-a \cdot \left(m \cdot x_i + b\right)^2\right) \right) \\
+   & \cdot n \cdot \exp\left(-a \cdot \left(m \cdot x_i + b\right)^2\right) \\
+   & \cdot \left(-2a \cdot \left(m \cdot x_i + b\right)\right)
+   \end{aligned}
+\end{equation}
+
+
+and with a parameter update method of:
+
+\begin{equation}
+n \leftarrow n - \eta \frac{\partial \text{Loss}}{\partial n}, \quad a \leftarrow a - \eta \frac{\partial \text{Loss}}{\partial a}
+\end{equation}
+
+\begin{equation}
+m \leftarrow m - \eta \frac{\partial \text{Loss}}{\partial m}, \quad b \leftarrow b - \eta \frac{\partial \text{Loss}}{\partial b}
+\end{equation}
+
+where $\eta$ is the learning rate.
+
+\subsection{Results: 2a}
+Compare the predicted values with the actual data. 
+After fitting the model, plot the predicted values $y_{pred}$ versus the actual data $y$. 
+Include the plot in your report.
+
+These are the results of fitting the model for 10000 epochs at a learning rate of 0.001.
+
+\begin{table}[h]
+   \centering
+   \caption{Nonlinear Fit: Nominal values of $n_{fit}$, $a_{fit}$, $m_{fit}$ and $b_{fit}$}
+   \label{tab:NonLin_Nominal_namb}
+   \begin{tabular}{|c|c|}
+      \hline
+      $n_{fit}$ & 0.05814377819334344 \\
+      \hline
+      $a_{fit}$ & 0.3232072211957599 \\
+      \hline
+      $m_{fit}$ & 0.38542333824260566 \\
+      \hline
+      $b_{fit}$ & 0.2709157627577561 \\
+      \hline
+   \end{tabular}
+\end{table}
+
+% [h!] makes latex try to place figure exactly there, not floating around
+\begin{figure}[h!]
+   \centering
+   \includegraphics[width=0.8\linewidth]{../Figures/nonlinear_regression_e_10000_n_0.001.png}
+   \caption{Nonlinear predicted values $y_{pred}$ versus actual data $y$ with original values }
+   \label{fig:NonLin_a}
+\end{figure}
 
 
 
-\subsection{Sensitivity Analysis}
+\subsection{Results: 2b}
+Experiment with the learning rate and the number of epochs.
 
-Sensitivity analysis was performed to determine the requirements on the refinement of mesh for accurate results.
-The mesh is constructed parametrically by defining the number of nodes $N$ and the time-step in the simulation $\Delta t$.
+Here I manually tried different values of epochs and learning rate ($\eta$) and found the set that minimized loss with ensured convergence
 
-It is found that decreasing the number of nodes does not have significant impact on the results, as shown in Fig. \ref{fig:lessNodes_zplot}.
-However, when we further increase the refinement of $\Delta t: 0.005 \rightarrow 0.001$, there is noticeable difference.
-The damping effects on the system in converging to a steady state of $z \approx -0.04$ are less pronounced, and so steady state is not achieved in the $5s$ duration of this simulation.
+\begin{table}[h]
+   \centering
+   \caption{NonLinear Fit: Table of hyperparameters}
+   \label{tab:nonlin_param}
+   \begin{tabular}{|c|c|c|c|c|}
+      \hline
+      Epoch & Learning Rate ($\eta$) & Loss & Convergence & Figure\\
+      \hline
+      10000 & 0.001 & 0.00001179 & Yes & \ref{fig:NonLin_a}\\
+      \hline
+      1000 & 0.001 & 0.00005946 & Yes\ & \ref{fig:NonLin_b_less_e}\\
+      \hline
+      10000 & 0.01 & 0.00007575 & Yes & \ref{fig:NonLin_b_less_n}\\
+      \hline
+      50000 & 0.0001 & 0.00000775 & Yes & \ref{fig:NonLin_b_min_loss}\\
+      \hline
+   \end{tabular}
+   
+\end{table}
 
 
-In either case of adjusting either $K$ or $\Delta t$, the trade off is computational time.
-We note that refinement of $\Delta t$ is linearly correlated to the number of steps to be computed. 
-In this case, each subsequent step of the simulation should take less iterations of Newton-Raphson to converge as the system approaches a steady state.
-Still, as shown in Fig. \ref{fig:lessDT_zplot}, if there is no steady state achieved in the simulation, then the computational time for each step is approximately constant, and so the computational time for this simulation is linearly correlated with the refinement in $\Delta t$.
+% [h!] makes latex try to place figure exactly there, not floating around
+\begin{figure}[h!]
+   \centering
+   \includegraphics[width=0.8\linewidth]{../Figures/nonlinear_regression_e_1000_n_0.001.png}
+   \caption{Predicted values $y_{pred}$ versus actual data $y$ with no convergence}
+   \label{fig:NonLin_b_less_e}
+\end{figure}
 
-Alternatively, increasing the density of nodes $K$ has less noticeable effects on computational time, because the physics of nodes that are linked close together mean that there is less variance, and so the computational increase with a higher node density is not a linear correlation; it is intuitively logarithmic in nature.
+% [h!] makes latex try to place figure exactly there, not floating around
+\begin{figure}[h!]
+   \centering
+   \includegraphics[width=0.8\linewidth]{../Figures/nonlinear_regression_e_10000_n_0.01.png}
+   \caption{Predicted values $y_{pred}$ versus actual data $y$ with minimum loss but excess epochs}
+   \label{fig:NonLin_b_less_n}
+\end{figure}
 
+% [h!] makes latex try to place figure exactly there, not floating around
+\begin{figure}[h!]
+   \centering
+   \includegraphics[width=0.8\linewidth]{../Figures/nonlinear_regression_e_50000_n_0.0001.png}
+   \caption{Predicted values $y_{pred}$ versus actual data $y$ with minimum loss and optimized epochs}
+   \label{fig:NonLin_b_min_loss}
+\end{figure}
 
-For completness, we also furnish the nominal plot of z-coordinates in the last node for $N=50$, $\Delta t = 0.01$s, as is furnished in Chapter 7 of the text in this course.
+Changing the learning rate effects the number of epochs required for convergence. 
+A smaller learning rate requires more epochs before convergence.
+Furthermore, a larger learning rate also affects the precision of the fit, meaning that a minimum loss might not be found because of the larger "steps" from the learning rate. 
+
+Changing the number of epochs affects the final loss, assuming loss is not yet minimized. 
+This means there is a minimum number of epochs required to get the optimum fit, and thereafter, higher numbers of epochs are wasted a computation resource.
+
+Together, this means we want a learning rate that is just large enough to find the minimum loss fit, then we want to minimize the number of epochs within this fit.
+This was manually found and presented in Figure. \ref{fig:NonLin_b_min_loss}. 
+
+Importantly, we note the qualitative observation that the initial guess for $n$, $a$, $m$, $b$ also have nontrivial effect on the ability for the system to converge, and also on the minimum loss value.
+In the code submitted herein, there is logic to pick feasible initial values first before commencing epoch iteration. 
+This was required to mitigate the effects of randomness in initial guesses, and to enforce repeatability in the manual, heuristic search of the best hyperparameters. 
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{ACKNOWLEDGMENT}

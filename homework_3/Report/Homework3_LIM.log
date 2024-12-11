@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.11.6)  10 DEC 2024 04:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.11.6)  10 DEC 2024 21:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -266,53 +266,42 @@ LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 56
  (c:/texlive/2024/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-c:/Users/limhe/OneDrive/Documents/0_Classes UCLA/0_MAE 263F_Flexible Structures Soft Robots/MAE263F_UCLA_Fall2024/homework_3/Report/Homework3_LIM.tex:116: Missing $ inserted.
-<inserted text> 
-                $
-l.116 m_
-        fit is -0.011781642379859762
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
 
-c:/Users/limhe/OneDrive/Documents/0_Classes UCLA/0_MAE 263F_Flexible Structures Soft Robots/MAE263F_UCLA_Fall2024/homework_3/Report/Homework3_LIM.tex:117: Missing $ inserted.
-<inserted text> 
-                $
-l.117 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-c:/Users/limhe/OneDrive/Documents/0_Classes UCLA/0_MAE 263F_Flexible Structures Soft Robots/MAE263F_UCLA_Fall2024/homework_3/Report/Homework3_LIM.tex:118: Missing $ inserted.
-<inserted text> 
-                $
-l.118 b_
-        fit is 0.06320409591699154
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-c:/Users/limhe/OneDrive/Documents/0_Classes UCLA/0_MAE 263F_Flexible Structures Soft Robots/MAE263F_UCLA_Fall2024/homework_3/Report/Homework3_LIM.tex:119: Missing $ inserted.
-<inserted text> 
-                $
-l.119 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 <../Figures/linear_regression_e_10000_n_0.001.png, id=1, 462.528pt x 346.896pt>
 File: ../Figures/linear_regression_e_10000_n_0.001.png Graphic file (type png)
 <use ../Figures/linear_regression_e_10000_n_0.001.png>
-Package pdftex.def Info: ../Figures/linear_regression_e_10000_n_0.001.png  used on input line 123.
+Package pdftex.def Info: ../Figures/linear_regression_e_10000_n_0.001.png  used on input line 135.
 (pdftex.def)             Requested size: 196.57523pt x 147.43149pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 
+<../Figures/linear_regression_e_1000_n_0.001.png, id=3, 462.528pt x 346.896pt>
+File: ../Figures/linear_regression_e_1000_n_0.001.png Graphic file (type png)
+<use ../Figures/linear_regression_e_1000_n_0.001.png>
+Package pdftex.def Info: ../Figures/linear_regression_e_1000_n_0.001.png  used on input line 170.
+(pdftex.def)             Requested size: 196.57523pt x 147.43149pt.
 
-LaTeX Warning: Reference `fig:lessNodes_zplot' on page 1 undefined on input line 148.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+<../Figures/linear_regression_e_10000_n_0.01.png, id=4, 462.528pt x 346.896pt>
+File: ../Figures/linear_regression_e_10000_n_0.01.png Graphic file (type png)
+<use ../Figures/linear_regression_e_10000_n_0.01.png>
+Package pdftex.def Info: ../Figures/linear_regression_e_10000_n_0.01.png  used on input line 178.
+(pdftex.def)             Requested size: 196.57523pt x 147.43149pt.
 
-LaTeX Warning: Reference `fig:lessDT_zplot' on page 1 undefined on input line 156.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<../Figures/linear_regression_e_1000_n_0.01.png, id=5, 462.528pt x 346.896pt>
+File: ../Figures/linear_regression_e_1000_n_0.01.png Graphic file (type png)
+<use ../Figures/linear_regression_e_1000_n_0.01.png>
+Package pdftex.def Info: ../Figures/linear_regression_e_1000_n_0.01.png  used on input line 186.
+(pdftex.def)             Requested size: 196.57523pt x 147.43149pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 
@@ -320,6 +309,45 @@ LaTeX Warning: Reference `fig:lessDT_zplot' on page 1 undefined on input line 15
 
 
  <../Figures/linear_regression_e_10000_n_0.001.png>]
+
+
+
+[2 <../Figures/linear_regression_e_1000_n_0.001.png> <../Figures/linear_regression_e_10000_n_0.01.png> <../Figures/linear_regression_e_1000_n_0.01.png>]
+<../Figures/nonlinear_regression_e_10000_n_0.001.png, id=33, 462.528pt x 346.896pt>
+File: ../Figures/nonlinear_regression_e_10000_n_0.001.png Graphic file (type png)
+<use ../Figures/nonlinear_regression_e_10000_n_0.001.png>
+Package pdftex.def Info: ../Figures/nonlinear_regression_e_10000_n_0.001.png  used on input line 298.
+(pdftex.def)             Requested size: 196.57523pt x 147.43149pt.
+<../Figures/nonlinear_regression_e_1000_n_0.001.png, id=34, 462.528pt x 346.896pt>
+File: ../Figures/nonlinear_regression_e_1000_n_0.001.png Graphic file (type png)
+<use ../Figures/nonlinear_regression_e_1000_n_0.001.png>
+Package pdftex.def Info: ../Figures/nonlinear_regression_e_1000_n_0.001.png  used on input line 334.
+(pdftex.def)             Requested size: 196.57523pt x 147.43149pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<../Figures/nonlinear_regression_e_10000_n_0.01.png, id=35, 462.528pt x 346.896pt>
+File: ../Figures/nonlinear_regression_e_10000_n_0.01.png Graphic file (type png)
+<use ../Figures/nonlinear_regression_e_10000_n_0.01.png>
+Package pdftex.def Info: ../Figures/nonlinear_regression_e_10000_n_0.01.png  used on input line 342.
+(pdftex.def)             Requested size: 196.57523pt x 147.43149pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<../Figures/nonlinear_regression_e_50000_n_0.0001.png, id=36, 462.528pt x 346.896pt>
+File: ../Figures/nonlinear_regression_e_50000_n_0.0001.png Graphic file (type png)
+<use ../Figures/nonlinear_regression_e_50000_n_0.0001.png>
+Package pdftex.def Info: ../Figures/nonlinear_regression_e_50000_n_0.0001.png  used on input line 350.
+(pdftex.def)             Requested size: 196.57523pt x 147.43149pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+
+
+
+[3 <../Figures/nonlinear_regression_e_10000_n_0.001.png> <../Figures/nonlinear_regression_e_1000_n_0.001.png> <../Figures/nonlinear_regression_e_10000_n_0.01.png> <../Figures/nonlinear_regression_e_50000_n_0.0001.png>]
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -335,34 +363,27 @@ Before submitting the final camera ready copy, remember to:
 
 
 
-[2
+[4
 
 ] (./Homework3_LIM.aux)
  ***********
 LaTeX2e <2024-11-01>
 L3 programming layer <2024-11-02>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 3998 strings out of 473362
- 60514 string characters out of 5725045
- 464262 words of memory out of 5000000
- 27068 multiletter control sequences out of 15000+600000
- 597444 words of font info for 121 fonts, out of 8000000 for 9000
+ 4064 strings out of 473362
+ 63615 string characters out of 5725045
+ 469529 words of memory out of 5000000
+ 27133 multiletter control sequences out of 15000+600000
+ 599139 words of font info for 123 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,10n,65p,499b,331s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,10n,65p,412b,331s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Homework3_LIM.pdf (2 pages, 251423 bytes).
+Output written on Homework3_LIM.pdf (4 pages, 1118258 bytes).
 PDF statistics:
- 90 PDF objects out of 1000 (max. 8388607)
- 53 compressed objects within 1 object stream
+ 110 PDF objects out of 1000 (max. 8388607)
+ 57 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

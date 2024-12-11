@@ -1,9 +1,16 @@
 # Fdb version 4
-["pdflatex"] 1733832061.84171 "c:/Users/limhe/OneDrive/Documents/0_Classes UCLA/0_MAE 263F_Flexible Structures Soft Robots/MAE263F_UCLA_Fall2024/homework_3/Report/Homework3_LIM.tex" "Homework3_LIM.pdf" "Homework3_LIM" 1733832064.6671 2
-  "../Figures/linear_regression_e_10000_n_0.001.png" 1733830609 110450 1ff04c4bd72bf342af4242d6a4e12060 ""
-  "Homework3_LIM.aux" 1733832064 1274 e0674d899a466aec2deed0fa5ec64edc "pdflatex"
-  "Homework3_LIM.tex" 1733832055 7638 c7c4df5ae9a1cf7773b187fac6bef364 ""
-  "c:/Users/limhe/OneDrive/Documents/0_Classes UCLA/0_MAE 263F_Flexible Structures Soft Robots/MAE263F_UCLA_Fall2024/homework_3/Report/Homework3_LIM.tex" 1733832055 7638 c7c4df5ae9a1cf7773b187fac6bef364 ""
+["pdflatex"] 1733895554.41938 "c:/Users/limhe/OneDrive/Documents/0_Classes UCLA/0_MAE 263F_Flexible Structures Soft Robots/MAE263F_UCLA_Fall2024/homework_3/Report/Homework3_LIM.tex" "Homework3_LIM.pdf" "Homework3_LIM" 1733895560.54925 0
+  "../Figures/linear_regression_e_10000_n_0.001.png" 1733894735 142768 6221697dccf348bfb8a106ad5afd2133 ""
+  "../Figures/linear_regression_e_10000_n_0.01.png" 1733894737 141948 30d40f3ff031826e4e37e1435182c452 ""
+  "../Figures/linear_regression_e_1000_n_0.001.png" 1733894735 146502 4faf8eb205a04f0824dbcf59a10750b3 ""
+  "../Figures/linear_regression_e_1000_n_0.01.png" 1733894737 141913 140e616dd2f07e079fa385a645b625c4 ""
+  "../Figures/nonlinear_regression_e_10000_n_0.001.png" 1733895151 143686 74ce5692aff316f72e10eecf62e134be ""
+  "../Figures/nonlinear_regression_e_10000_n_0.01.png" 1733895154 149129 5dae2ba2d265b09c73db1432f63e435f ""
+  "../Figures/nonlinear_regression_e_1000_n_0.001.png" 1733895152 150752 f07be9ed3beac448bf453d59b6737880 ""
+  "../Figures/nonlinear_regression_e_50000_n_0.0001.png" 1733895161 144902 0cbfc94c95cc4f4726d7a33f255d4ba7 ""
+  "Homework3_LIM.aux" 1733895560 3776 581346bbec4ae2c09f1a63fe06422570 "pdflatex"
+  "Homework3_LIM.tex" 1733895552 15144 635c7333f738a96ce3c0a07661abe342 ""
+  "c:/Users/limhe/OneDrive/Documents/0_Classes UCLA/0_MAE 263F_Flexible Structures Soft Robots/MAE263F_UCLA_Fall2024/homework_3/Report/Homework3_LIM.tex" 1733895552 15144 635c7333f738a96ce3c0a07661abe342 ""
   "c:/texlive/2024/texmf-dist/fonts/enc/dvips/base/8r.enc" 1730877035 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "c:/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1730878102 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2024/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm" 1730876337 960 379cc0019370a9e0208a0a3f949f847a ""
